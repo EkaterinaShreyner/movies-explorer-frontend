@@ -1,0 +1,69 @@
+.root {
+  background: #000;
+  min-height: 100vh;
+  min-width: 1280px;
+}
+
+.page {
+  max-width: 1280px;
+  font-family: "Inter", sans-serif;
+  background: #202020;
+  color: #ffffff;
+  margin: auto;
+  position: relative;
+  z-index: 0;
+}
+
+.header {
+  background-color: #073042;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 18px 70px;
+  align-items: center;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.header__routs {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.header__rout-register {
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.header__rout-login {
+  color: #000;
+  min-width: 76px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  background: #3DDC84;
+  border-radius: 3px;
+}
+
+/* .header__rout:last-of-type {
+  color: #000;
+  width: 76px;
+  border-radius: 3px;
+  background: #3DDC84;
+} */
