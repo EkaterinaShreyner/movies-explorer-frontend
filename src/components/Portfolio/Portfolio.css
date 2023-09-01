@@ -1,5 +1,5 @@
 .portfolio {
-  padding: 101px 70px 125px;
+  padding: 100px 70px 95px;
 }
 
 .portfolio__title {
@@ -8,8 +8,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  padding-bottom: 50px;
-  margin: 0;
+  margin: 0 0 30px;
 }
 
 .portfolio__list {
@@ -23,7 +22,16 @@
   text-decoration: none;
   border-bottom: 1px solid #424242;
   padding-top: 20px;
-  padding-bottom: 19px;
+  padding-bottom: 20px;
+  transition: opacity 0.5s linear;
+}
+
+.portfolio__link:last-child {
+  border: 0;
+}
+
+.portfolio__link:hover {
+  opacity: 0.7;
 }
 
 .portfolio__link-website {
@@ -36,5 +44,6 @@
 }
 
 .portfolio__arrow {
-  
+  width: 29px;
+  background: url(../../images/arrow.svg) center no-repeat;
 }

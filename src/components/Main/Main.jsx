@@ -10,9 +10,8 @@ import Promo from '../Promo/Promo';
 function Main() {
   return(
     <main className="content">
-      <Promo>
-        <NavTab/>
-      </Promo>
+      <Promo/>
+      <NavTab/>
       <AboutProject/>
       <Techs/>
       <AboutMe/>

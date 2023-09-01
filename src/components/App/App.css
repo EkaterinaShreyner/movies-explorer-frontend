@@ -1,5 +1,5 @@
 .root {
-  background: #000;
+  background: #202020;
   min-height: 100vh;
   min-width: 1280px;
 }
@@ -15,3 +15,6 @@
   /* padding: 0 70px; */
 }
 
+html {
+  scroll-behavior: smooth;
+}

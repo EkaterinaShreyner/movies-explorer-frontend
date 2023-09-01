@@ -55,7 +55,7 @@
   font-weight: 400;
   line-height: 22px;
   margin: 0;
-  padding-bottom: 99px;
+  margin-bottom: 99px;
 }
 
 .about-me__link-githab {
@@ -66,6 +66,11 @@
   line-height: normal;
   margin: 0;
   text-decoration: none;
+  transition: opacity 0.5s linear;
+}
+
+.about-me__link-githab:hover {
+  opacity: 0.7;
 }
 
 .about-me__foto {

@@ -2,7 +2,7 @@
   background: #202020;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 1280px;
   padding: 110px 70px;
   box-sizing: border-box;
 }
@@ -45,6 +45,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  line-height: 20px;
   margin: 0;
   padding-top: 26px;
 }
@@ -52,22 +53,13 @@
 .project__duration {
   display: flex;
   width: 100%;
-  align-items: center;
 }
 
-.project__duration-timeWeek {
+.project__week {
   width: 20%;
-}
-
-.project__duration-timeWeek:last-child {
-  /* flex-basis: 912px; */
-  width: 80%;
-}
-
-.project__duration-time {
-  background-color: #3DDC84;
-  color: #000;
   text-align: center;
+  background: #3DDC84;
+  color: #000;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -76,15 +68,28 @@
   padding-bottom: 9px;
 }
 
-.project__duration-time:last-of-type {
-  background-color: #303030;
+.project__week:last-child {
+  width: 80%;
+  background: #303030;
+  color: #FFF;
 }
 
-.project__duration-block {
+.project__stack {
+  display: flex;
+  width: 100%;
+}
+
+.project__block {
+  width: 20%;
+  text-align: center;
   color: #8B8B8B;
   text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  line-height: 17px;
   padding-top: 14px;
+}
+.project__block:last-child {
+  width: 80%;
 }

@@ -1,4 +1,4 @@
-.root {
+/* .root {
   background: #000;
   min-height: 100vh;
   min-width: 1280px;
@@ -12,16 +12,22 @@
   margin: auto;
   position: relative;
   z-index: 0;
-}
+} */
 
 .header {
-  background-color: #073042;
+  background-color: #202020;
   max-width: 1280px;
+  height: 74px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   margin: 0;
   padding: 18px 70px;
   align-items: center;
+}
+
+.header_landing {
+  background-color: #073042;
 }
 
 .header__logo {
@@ -45,6 +51,11 @@
   line-height: 16px;
   text-align: center;
   text-decoration: none;
+  transition: opacity 0.5s linear;
+}
+
+.header__rout-register:hover {
+  opacity: 0.7;
 }
 
 .header__rout-login {
@@ -59,11 +70,49 @@
   text-decoration: none;
   background: #3DDC84;
   border-radius: 3px;
+  transition: opacity 0.5s linear;
 }
 
-/* .header__rout:last-of-type {
-  color: #000;
-  width: 76px;
-  border-radius: 3px;
-  background: #3DDC84;
-} */
+.header__rout-login:hover {
+  opacity: 0.8;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1057px;
+  /* height: 32px; */
+}
+
+.header__nav-list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.header__nav-item {
+  color: #FFF;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.header__nav-item_active {
+  font-weight: 500;
+}
+
+.header__nav-profile {
+  width: 100px;
+  height: 32px;
+  background-image: url(../../images/profile2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 40px;
+  background-color: #073042;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+}

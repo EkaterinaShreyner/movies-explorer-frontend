@@ -1,5 +1,4 @@
 import React from "react";
-import arrow from "../../images/arrow.svg"
 
 function Portfolio() {
   return(
@@ -9,31 +8,19 @@ function Portfolio() {
         <li> 
           <a className="portfolio__link" href="https://github.com/EkaterinaShreyner" target="_blank" rel="noreferrer">
             <div className="portfolio__link-website">Статичный сайт</div>
-            <img 
-            className="portfolio__arrow"
-            src={arrow}
-            alt="стрелка ведущая на сайт"
-            />
+            <div className="portfolio__arrow"/>
           </a>
         </li>
         <li> 
           <a className="portfolio__link" href="https://github.com/EkaterinaShreyner" target="_blank" rel="noreferrer">
             <div className="portfolio__link-website">Адаптивный сайт</div>
-            <img 
-            className="portfolio__arrow"
-            src={arrow}
-            alt="стрелка ведущая на сайт"
-            />
+            <div className="portfolio__arrow"/>
           </a>
         </li>
         <li> 
           <a className="portfolio__link" href="https://github.com/EkaterinaShreyner" target="_blank" rel="noreferrer">
             <div className="portfolio__link-website">Одностраничное приложение</div>
-            <img 
-            className="portfolio__arrow"
-            src={arrow}
-            alt="стрелка ведущая на сайт"
-            />
+            <div className="portfolio__arrow"/>
           </a>
         </li>
       </ul>

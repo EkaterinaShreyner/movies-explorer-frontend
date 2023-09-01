@@ -1,7 +1,9 @@
 .cards {
   display: flex;
-  gap: 24px;
+  gap: 37px 24px;
   flex-wrap: wrap;
+  border-top: 1px solid #424242;;
+  padding-top: 80px;
 }
 
 .cards__button {
@@ -11,10 +13,14 @@
   background: #2F2F2F;
   color: #FFF;
   border: 0;
-/* text-align: center; */
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   margin-top: 60px;
+  transition: opacity 0.5s linear;
+}
+
+.cards__button:hover {
+  opacity: 0.8;
 }

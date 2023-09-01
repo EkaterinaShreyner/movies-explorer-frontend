@@ -1,10 +1,11 @@
 .promo {
-  width: 1280px;
+  max-width: 1280px;
   height: 524px;
   background-color: #073042;
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .promo__landing {
@@ -12,10 +13,12 @@
   height: 320px;
   margin: auto;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  top: 82px;
+  /* left: 50%; */
+  /* top: 50%;
+  left: 50%; */
+  /* margin-right: -50%;
+  transform: translate(-50%, 0); */
 }
 
 .promo__title {
@@ -28,31 +31,10 @@
   position: absolute;
   text-align: center;
   letter-spacing: -2px;
-  top: 50%;
+  top: 184px;
+  /* top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   margin: 0;
-}
-
-.promo__list {
-  width: 1280px;
-  height: 66px;
-  background: #272727;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.promo__list-item {
-  color: #FFF;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
-  text-decoration: underline;
 }

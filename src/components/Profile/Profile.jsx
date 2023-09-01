@@ -1,6 +1,9 @@
-import React from 'react';
+import { useState } from "react";
 
 function Profile() {
+
+  const [isEditProfile, setEditProfile] = useState(false);
+
   return(
     <div className="profile">
       <h2 className="profile__title">Привет, Екатерина!</h2>
@@ -21,8 +24,14 @@ function Profile() {
           name="email"
           required
         />
-        <button className="profile__button-submit" type="submit">Редактировать</button>
-        <button className="profile__button-exit">Выйти из аккаунта</button>
+        {!isEditProfile ? (
+          <>
+            <button className="profile__button-submit" type="submit">Редактировать</button>
+            <button className="profile__button-exit">Выйти из аккаунта</button>
+          </>
+        ) : (
+          <button className="profile__button-save" type="submit">Сохранить</button>
+        )}
       </form>
     </div>
   )

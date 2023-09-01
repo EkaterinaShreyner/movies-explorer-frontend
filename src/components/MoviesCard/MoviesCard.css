@@ -10,12 +10,20 @@
   height: 203px;
 }
 
+.card__info {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* gap: 12px; */
+  padding: 9px 16px 16px;
+  background: #222;
+}
+
 .card__container {
   display: flex;
-  justify-content: space-between;
   gap: 12px;
-  padding: 16px;
-  background: #222;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .card__title {
@@ -25,7 +33,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin: 0 0 17px;
+  margin: 0;
 }
 
 .card__duration {
@@ -34,7 +42,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0;
+  margin: 10px 0 0;
 }
 
 .card__button {
@@ -43,4 +51,8 @@
   border: 0;
   background: url(../../images/save4d.svg) no-repeat;
   padding: 0;
+}
+
+.card__button_active {
+  background: url(../../images/save4.svg) no-repeat center;
 }

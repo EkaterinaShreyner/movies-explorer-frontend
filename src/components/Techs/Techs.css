@@ -10,6 +10,7 @@
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
+  letter-spacing: -0.88px;
   color: #FFF;
   margin: 0;
   padding-bottom: 23px;
@@ -30,6 +31,7 @@
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
+  line-height: 58px;
   letter-spacing: -2px;
   margin: 0;
 }
@@ -41,6 +43,7 @@
   text-align: center;
   font-style: normal;
   font-weight: 400;
+  line-height: 20px;
   letter-spacing: -0.56px;
   margin: 0;
 }
@@ -51,6 +54,7 @@
   justify-content: center;
   gap: 10px;
   padding: 100px 0 0;
+  margin: 0;
 }
 
 .techs__stack-item {

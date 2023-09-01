@@ -42,7 +42,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  padding-top: 17px;
+  padding-top: 14px;
 }
 
 .profile__button-submit {
@@ -55,6 +55,11 @@
   font-weight: 400;
   line-height: normal;
   margin: 204px 0 16px;
+  transition: opacity 0.5s linear;
+}
+
+.profile__button-submit:hover {
+  opacity: 0.8;
 }
 
 .profile__button-exit {
@@ -66,4 +71,27 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  transition: opacity 0.5s linear;
+}
+
+.profile__button-exit:hover {
+  opacity: 0.8;
+}
+
+.profile__button-save {
+  height: 45px;
+  border-radius: 3px;
+  border: 0;
+  background: #4285F4;
+  color: #FFF;
+  margin-top: 207px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: opacity 0.5s linear;
+}
+
+.profile__button-save:hover {
+  opacity: 0.8;
 }

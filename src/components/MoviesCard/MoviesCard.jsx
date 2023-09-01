@@ -9,12 +9,12 @@ function MoviesCard(props) {
         src={imageMovie}
         alt="Заставка к фильму"
       />
-      <div className="card__container">
-        <div>
+      <div className="card__info">
+        <div className="card__container">
           <h2 className="card__title">{props.movieTitle}</h2>
-          <p className="card__duration">1ч 47м</p>
+          <button className="card__button"></button>
         </div>
-        <button className="card__button"></button>
+        <p className="card__duration">1ч 47м</p>
       </div>
     </div>
   )
