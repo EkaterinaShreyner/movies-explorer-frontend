@@ -22,10 +22,7 @@ function Movies() {
           <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
           <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
         </MoviesCardList>
-          
-        
       </div>
-      {/* <Footer/> */}
     </>
   )
 }

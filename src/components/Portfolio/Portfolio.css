@@ -16,11 +16,14 @@
   padding-left: 0;
 }
 
+.portfolio__item {
+  border-bottom: 1px solid #424242;
+}
+
 .portfolio__link {
   display: flex;
   justify-content: space-between;
   text-decoration: none;
-  border-bottom: 1px solid #424242;
   padding-top: 20px;
   padding-bottom: 20px;
   transition: opacity 0.5s linear;

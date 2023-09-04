@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 
 import './App.css';
@@ -16,7 +16,13 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const navigate = useNavigate();
+
+  function onLoginOut() {
+    setIsLoggedIn(false);
+    navigate("/", { replace: true });
+  }
 
   return (
     <div className="root">
@@ -39,7 +45,7 @@ function App() {
             element={
               <>
                 <Header isLoggedIn={isLoggedIn} />
-                <Profile />
+                <Profile onLoginOut={onLoginOut}/>
               </>
             }
           ></Route>

@@ -13,8 +13,8 @@ function Register() {
         />
       </Link>
       <h2 className="auth__title">Добро пожаловать!</h2>
-      <form className="auth__form" name="form-register">
-        <label className="auth__input-label" for="name">Имя</label>
+      <form className="auth__form" name="form-register" noValidate>
+        <label className="auth__input-label" htmlFor="name">Имя</label>
         <input
           className="auth__input"
           name="name"
@@ -24,20 +24,21 @@ function Register() {
           maxLength="30"
           id="name"
         />
-        <label className="auth__input-label" for="email">E-mail</label>
+        <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input
           className="auth__input"
           name="email"
           type="email"
           required
         />
-        <label className="auth__input-label" for="password">Пароль</label>
+        <label className="auth__input-label" htmlFor="password">Пароль</label>
         <input
           className="auth__input"
           name="password"
           type="password"
           required
         />
+        {/* <span className="auth__input-error">Что-то пошло не так</span> */}
         <button
         className="auth__button"
         type="submit"

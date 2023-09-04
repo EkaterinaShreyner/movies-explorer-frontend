@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
 function Login() {
+
+  const [formValue, setFormValue] = useState({
+    email: "kkk@mail.ru",
+    password: ""
+  });
+
+  function handleChangeInput(evt) {
+    const {name, value} = evt.target;
+    setFormValue({
+      ...formValue,
+      [name]: value
+    })
+  }
+
   return(
     <div className="auth">
       <Link to="/">
@@ -13,22 +27,25 @@ function Login() {
         />
       </Link>
       <h2 className="auth__title">Рады видеть!</h2>
-      <form className="auth__form" name="form-login">
-        <label className="auth__input-label" for="email">E-mail</label>
+      <form className="auth__form" name="form-login" noValidate>
+        <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input
           className="auth__input"
           name="email"
           type="email"
           id="email"
           required
+          onChange={handleChangeInput}
+          value={formValue.email || ""}
         />
-        <label className="auth__input-label" for="password">Пароль</label>
+        <label className="auth__input-label" htmlFor="password">Пароль</label>
         <input
           className="auth__input"
           name="password"
           type="password"
           id="password"
           required
+          onChange={handleChangeInput}
         />
         <button
         className="auth__button"

@@ -26,7 +26,7 @@ function Header(props) {
               <NavLink to="/saved-movies" className={({isActive}) => `header__nav-item ${isActive ? "header__nav-item_active" : ""}`}>Сохранённые фильмы</NavLink>
             </li>
           </ul>
-          <NavLink to="/profile" className="header__nav-profile"/>   
+          <NavLink to="/profile" className={`header__nav-profile ${currentPath === "/" ? "" : "header__nav-profile_landing"}`}/>   
         </nav>
       ) : (
         <nav>
