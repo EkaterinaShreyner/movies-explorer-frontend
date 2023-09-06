@@ -18,6 +18,7 @@
 .about-me__info {
   display: flex;
   justify-content: space-between;
+  /* gap: 270px; */
   border-top: 1px solid #DADADA;
   margin: 0;
   padding-top: 66px;
@@ -78,3 +79,58 @@
   height: 327px;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 1070px) {
+  .about-me__info {
+    gap: 49px;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .about-me__description {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me {
+    padding: 90px 50px 0;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__description {
+    width: 364px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__foto {
+    width: 255px;
+    height: 307px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__occupation {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__text {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 87px;
+  }
+}
+

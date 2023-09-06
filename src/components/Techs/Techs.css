@@ -53,21 +53,56 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 100px 0 0;
-  margin: 0;
+  padding: 0;
+  margin: 100px 0 0;
 }
 
 .techs__stack-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 90px;
+  height: 60px;
   border-radius: 10px;
   background: #303030;
   color: #FFF;
-  text-align: center;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.56px;
-  padding-top: 21px;
-  padding-bottom: 21px;
+}
+
+@media screen and (max-width: 783px) {
+  .techs {
+    padding: 90px 50px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .techs__subtitle-text {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .techs__about {
+    padding-top: 80px;
+    gap: 22px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .techs__stack {
+    margin-top: 83px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .techs__stack-item {
+    width: 84px;
+    height: 57px;
+  }
 }

@@ -14,6 +14,7 @@
 .portfolio__list {
   list-style: none;
   padding-left: 0;
+  margin: 0;
 }
 
 .portfolio__item {
@@ -49,4 +50,22 @@
 .portfolio__arrow {
   width: 29px;
   background: url(../../images/arrow.svg) center no-repeat;
+}
+
+@media screen and (max-width: 783px) {
+  .portfolio {
+    padding: 90px 50px 70px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .portfolio__link-website {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .portfolio__arrow {
+    width: 27px;
+  }
 }

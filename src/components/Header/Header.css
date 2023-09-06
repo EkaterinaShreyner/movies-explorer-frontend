@@ -60,7 +60,8 @@
 
 .header__rout-login {
   color: #000;
-  min-width: 76px;
+  width: 76px;
+  height: 32px;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -82,7 +83,7 @@
   justify-content: space-between;
   align-items: center;
   width: 1057px;
-  /* height: 32px; */
+  padding-left: 45px;
 }
 
 .header__nav-list {
@@ -120,4 +121,107 @@
 .header__nav-profile_landing {
   background-image: url(../../images/profileBlack.svg);
   background-color: #202020;
+}
+
+.header__button-close {
+  width: 22px;
+  height: 22px;
+}
+
+.header__menu-burger {
+  display: none;
+  /* width: 24px; */
+  /* height: 20px; */
+  margin-right: 38px;
+  position: relative;
+  border: 0;
+  transition: opacity 0.3s linear;
+}
+
+.header__menu-burger:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 470px) {
+  .header__menu-burger {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header__menu-burger-item {
+  background-color: #FFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  /* transform: translate(-50%, -50%); */
+  width: 28px;
+  height: 3px;
+}
+
+.header__menu-burger-item:nth-of-type(2) {
+	top: calc(50% - 9px);
+}
+.header__menu-burger-item:nth-of-type(3) {
+	top: calc(50% + 9px);
+}
+
+@media screen and (max-width: 783px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .header__nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .header__menu-burger {
+    display: inline;
+  }
+}
+
+
+@media screen and (max-width: 440px) {
+  .header {
+    padding: 18px 14px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .header__rout-login {
+    width: 54px;
+    height: 32px;
+    padding: 5px 12px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .header__rout-register {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .header__routs {
+    gap: 14px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .header__menu-burger {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .header__menu-burger-item {
+    width: 22px;
+  }
 }

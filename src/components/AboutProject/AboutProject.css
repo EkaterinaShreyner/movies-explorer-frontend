@@ -22,7 +22,7 @@
 .project__list {
   display: flex;
   border-top: 1px solid rgba(218, 218, 218, 1);
-  width: 1140px;
+  max-width: 1140px;
   margin: 0;
   padding: 70px 0 110px;
   list-style: none;
@@ -92,4 +92,24 @@
 }
 .project__block:last-child {
   width: 80%;
+}
+
+@media screen and (max-width: 783px) {
+  .project {
+    padding: 90px 50px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .project__list {
+    padding-bottom: 93px;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .project__list-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
