@@ -113,3 +113,56 @@
     line-height: 18px;
   }
 }
+
+@media screen and (max-width: 601px) {
+  .project__list {
+    flex-direction: column;
+    padding: 60px 0;
+    gap: 56px;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .project__list-text {
+    padding-top: 16px;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .project__week {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .project__week:last-child {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .project__block {
+    width: 35%;
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .project__block:last-child {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .project {
+    padding: 70px 18px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .project__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}

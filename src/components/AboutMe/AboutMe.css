@@ -18,14 +18,13 @@
 .about-me__info {
   display: flex;
   justify-content: space-between;
-  /* gap: 270px; */
   border-top: 1px solid #DADADA;
   margin: 0;
   padding-top: 66px;
 }
 
 .about-me__description {
-  width: 600px;
+  max-width: 600px;
 }
 
 .about-me__name {
@@ -86,21 +85,9 @@
   }
 }
 
-@media screen and (max-width: 1070px) {
-  .about-me__description {
-    width: 500px;
-  }
-}
-
 @media screen and (max-width: 783px) {
   .about-me {
     padding: 90px 50px 0;
-  }
-}
-
-@media screen and (max-width: 783px) {
-  .about-me__description {
-    width: 364px;
   }
 }
 
@@ -134,3 +121,66 @@
   }
 }
 
+@media screen and (max-width: 601px) {
+  .about-me__foto {
+    width: 225px;
+    height: 270px;
+  }
+}
+
+@media screen and (max-width: 571px) {
+  .about-me__info {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 571px) {
+  .about-me__foto {
+    width: 292px;
+    height: 352px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me {
+    padding: 70px 14px 0;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__info {
+    padding-top: 60px;
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__name {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__occupation {
+      font-size: 11px;
+      line-height: 16px;
+      padding: 20px 0;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__text {
+    font-size: 11px;
+    margin-bottom: 40px;
+  }
+}

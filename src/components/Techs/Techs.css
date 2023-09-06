@@ -37,7 +37,7 @@
 }
 
 .techs__subtitle-text {
-  width: 460px;
+  max-width: 460px;
   color: #FFF;
   font-size: 14px;
   text-align: center;
@@ -104,5 +104,70 @@
   .techs__stack-item {
     width: 84px;
     height: 57px;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .techs__stack-item {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .techs__stack {
+    display: grid;
+    grid-template-columns: repeat(4, 84px);
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .techs__subtitle {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .techs {
+    padding: 70px 18px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .techs__about {
+    padding-top: 60px;
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .techs__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .techs__subtitle {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    line-height: 38px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .techs__subtitle-text {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .techs__stack {
+    display: grid;
+    grid-template-columns: repeat(2, 84px);
+    margin-top: 50px;
   }
 }
