@@ -54,6 +54,12 @@
 
 @media screen and (max-width: 783px) {
   .footer {
+    padding: 79px 30px 20px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .footer {
     padding: 79px 10px 0;
   }
 }
@@ -78,5 +84,17 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .footer__link {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .footer__copyright {
+    font-size: 12px;
   }
 }

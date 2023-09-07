@@ -29,6 +29,7 @@ function Register() {
           className="auth__input"
           name="email"
           type="email"
+          id="email"
           required
         />
         <label className="auth__input-label" htmlFor="password">Пароль</label>
@@ -36,6 +37,7 @@ function Register() {
           className="auth__input"
           name="password"
           type="password"
+          id="password"
           required
         />
         {/* <span className="auth__input-error">Что-то пошло не так</span> */}

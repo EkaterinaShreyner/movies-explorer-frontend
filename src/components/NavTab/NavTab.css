@@ -28,7 +28,13 @@
   opacity: 0.7;
 }
 
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 465px) {
+  .navtab__list {
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 465px) {
   .navtab__item {
     font-size: 11px;
   }

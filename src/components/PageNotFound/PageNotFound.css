@@ -38,32 +38,32 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 783px) {
   .not-found {
-    padding-top: 408px;
+    padding: 408px 0 222px;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 405px) {
   .not-found {
-    padding-top: 329px;
+    padding: 329px 0 30px;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 405px) {
   .not-found__title {
     font-size: 80px;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 405px) {
   .not-found__subtitle {
     font-size: 12px;
     margin-bottom: 284px;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 405px) {
   .not-found__button {
     font-size: 12px;
   }

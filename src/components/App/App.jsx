@@ -16,16 +16,10 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
-  // const [isMenuMobile, setIsMenuMobile] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const navigate = useNavigate();
-
-  // function handleMenuMobile() {
-  //   setIsMenuMobile(!isMenuMobile)
-  // }
 
   function onLoginOut() {
     setIsLoggedIn(false);
@@ -42,8 +36,6 @@ function App() {
               <>
                 <Header
                   isLoggedIn={isLoggedIn}
-                  // isMenuMobile={isMenuMobile}
-                  // handleMenuMobile={handleMenuMobile}
                 />
                 <Main />
                 <Footer />

@@ -44,3 +44,9 @@
   right: 6px;
   top: 6px;
 }
+
+@media screen and (max-width: 830px) {
+  .search {
+    padding-bottom: 51px;
+  }
+}

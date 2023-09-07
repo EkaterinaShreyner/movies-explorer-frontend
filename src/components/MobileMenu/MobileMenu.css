@@ -1,21 +1,15 @@
 .menu-mobile {
   display: none;
   z-index: 99;
-  /* width: 520px; */
   background: #202020;
   position: fixed;
-  /* position: relative; */
   top: 0;
   right: 0;
   bottom: 0;
-  /* left: 0; */
-  /* transform: translateX(100%);
-  transition: right .5s; */
 }
 
 .menu-mobile_opened {
   display: inline;
-  /* transform: translateX(0); */
 }
 
 .menu-mobile__button {
@@ -25,11 +19,12 @@
   border: 0;
   padding: 0;
   position: absolute;
-  top: 22px;
-  right: 22px;
+  top: 23px;
+  right: 23px;
 }
 
 .menu-mobile__container {
+  margin: 159px auto 90px;
 }
 
 .menu-mobile__list {
@@ -40,7 +35,8 @@
   gap: 28px;
   list-style: none;
   padding-left: 0;
-  margin: 159px auto 0;
+  margin: 0;
+  
 }
 
 .menu-mobile__item {
@@ -61,32 +57,41 @@
   display: block;
   width: 100px;
   height: 32px;
-  margin-top: 593px;
+  margin-top: 596px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 783px) and (min-width: 599px) {
   .menu-mobile {
-    /* position: relative !important;
-    display: block !important; */
-    width: 320px;
+    width: 520px;
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 598px) {
+  .menu-mobile {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 540px) {
   .menu-mobile__button {
-    top: 13px;
-    right: 13px;
+    top: 14px;
+    right: 14px;
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 540px) {
+  .menu-mobile__container {
+    margin: 144px auto 46px;
+  }
+}
+
+@media screen and (max-width: 540px) {
   .menu-mobile__list {
-    margin-top: 100px;
     gap: 24px;
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 540px) {
   .menu-mobile__profile {
     margin-top: 420px;
   }

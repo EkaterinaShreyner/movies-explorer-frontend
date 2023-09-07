@@ -65,12 +65,6 @@
   }
 }
 
-/* @media screen and (max-width: 783px) {
-  .portfolio__arrow {
-    width: 20px;
-  }
-} */
-
 @media screen and (max-width: 465px) {
   .portfolio__link-website {
     font-size: 18px;

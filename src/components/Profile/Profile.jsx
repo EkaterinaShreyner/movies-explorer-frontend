@@ -28,6 +28,7 @@ function Profile(props) {
             className="profile__input"
             type="text"
             name="name"
+            id="name"
             minLength="2"
             maxLength="30"
             required
@@ -42,6 +43,7 @@ function Profile(props) {
           className="profile__input"
           type="text"
           name="email"
+          id="email"
           required
           value={email || ""}
           onChange={handleChangeInputEmail}

@@ -1,5 +1,7 @@
 .cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 364px);
+  justify-content: space-around;
   gap: 37px 24px;
   flex-wrap: wrap;
   border-top: 1px solid #424242;;
@@ -13,6 +15,7 @@
   background: #2F2F2F;
   color: #FFF;
   border: 0;
+  padding: 0;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -23,4 +26,31 @@
 
 .cards__button:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 830px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, 339px);
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .cards__button {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 14px;
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .cards__button {
+    margin-top: 76px;
+  }
 }

@@ -3,7 +3,6 @@ import { useState } from "react";
 import logo from '../../images/logo.svg';
 import { Link, NavLink, useLocation } from "react-router-dom";
 import MobileMenu from "../MobileMenu/MobileMenu";
-import close from "../../images/Group.svg";
 
 function Header(props) {
 

@@ -27,7 +27,6 @@
 
 .profile__container {
   display: flex;
-  /* width: 410px; */
   justify-content: space-between;
   align-items: baseline;
   border-bottom: 1px solid #424242;
@@ -120,19 +119,19 @@
   opacity: 0.8;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 783px) {
   .profile {
-    padding-top: 236px;
+    padding: 236px 0 269px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 783px) {
   .profile__title {
     padding-bottom: 80px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 783px) {
   .profile__button-submit {
     margin-top: 194px;
   }
