@@ -42,7 +42,7 @@ function Header(props) {
             </ul>
             <NavLink to="/profile" className={`header__nav-profile ${currentPath === "/" ? "" : "header__nav-profile_landing"}`}/>   
           </nav>
-          <div className="header__menu-burger"
+          <button className="header__menu-burger"
             onClick={handleMenuMobile}
           >
             { isMenuMobile
@@ -55,7 +55,7 @@ function Header(props) {
                   <div className="header__menu-burger-item"></div>
                 </>
             }
-          </div>
+          </button>
         </>
       ) : (
         <nav>

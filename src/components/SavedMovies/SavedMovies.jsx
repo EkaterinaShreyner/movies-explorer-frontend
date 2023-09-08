@@ -9,9 +9,9 @@ function SavedMovies() {
     <div className="saved-movies">
       <SearchForm/>
       <MoviesCardList>
-          <MoviesCard moviesTitle="33 слова о дизайне"></MoviesCard>
-          <MoviesCard moviesTitle="33 слова о дизайне"></MoviesCard>
-          <MoviesCard moviesTitle="33 слова о дизайне"></MoviesCard>
+          <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
+          <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
+          <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
       </MoviesCardList>
     </div>
     </>

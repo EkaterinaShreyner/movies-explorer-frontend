@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 74px 0 0;
+  padding: 74px 0 70px;
 }
 
 .profile__title {
@@ -67,7 +67,7 @@
   line-height: normal;
 }
 
-.profile__button-submit {
+.profile__button-edit {
   color: #FFF;
   background: #202020;
   border: 0;
@@ -79,9 +79,10 @@
   margin: 204px 0 16px;
   padding: 0;
   transition: opacity 0.5s linear;
+  cursor: pointer;
 }
 
-.profile__button-submit:hover {
+.profile__button-edit:hover {
   opacity: 0.8;
 }
 
@@ -89,12 +90,14 @@
   color: #EE3465;
   background: #202020;
   border: 0;
+  padding: 0;
   text-align: center;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   transition: opacity 0.5s linear;
+  cursor: pointer;
 }
 
 .profile__button-exit:hover {
@@ -113,9 +116,30 @@
   font-weight: 500;
   line-height: normal;
   transition: opacity 0.5s linear;
+  cursor: pointer;
 }
 
 .profile__button-save:hover {
+  opacity: 0.8;
+}
+
+.profile__button-submit {
+  height: 45px;
+  border-radius: 3px;
+  border: 0;
+  padding: 0;
+  background: #4285F4;
+  color: #FFF;
+  margin-top: 207px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: opacity 0.5s linear;
+  cursor: pointer;
+}
+
+.profile__button-submit:hover {
   opacity: 0.8;
 }
 
@@ -132,6 +156,12 @@
 }
 
 @media screen and (max-width: 783px) {
+  .profile__button-edit {
+    margin-top: 194px;
+  }
+}
+
+@media screen and (max-width: 783px) {
   .profile__button-submit {
     margin-top: 194px;
   }
@@ -139,7 +169,7 @@
 
 @media screen and (max-width: 440px) {
   .profile {
-    padding-top: 70px;
+    padding: 70px 0 40px;
   }
 }
 
@@ -150,20 +180,22 @@
 }
 
 @media screen and (max-width: 440px) {
+  .profile__button-edit {
+    margin-top: 363px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 440px) {
   .profile__button-submit {
     margin-top: 363px;
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 440px) {
   .profile__form {
     width: 260px;
-  }
-}
-
-@media screen and (max-width: 440px) {
-  .profile__button-submit {
-    font-size: 12px;
   }
 }
 

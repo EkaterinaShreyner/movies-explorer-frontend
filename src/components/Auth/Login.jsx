@@ -34,6 +34,7 @@ function Login() {
           name="email"
           type="email"
           id="email"
+          placeholder="E-mail"
           required
           onChange={handleChangeInput}
           value={formValue.email || ""}
@@ -44,6 +45,7 @@ function Login() {
           name="password"
           type="password"
           id="password"
+          placeholder="Пароль"
           required
           onChange={handleChangeInput}
         />

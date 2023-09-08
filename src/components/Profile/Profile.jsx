@@ -2,9 +2,10 @@ import { useState } from "react";
 
 function Profile(props) {
 
-  const [isEditProfile, setEditProfile] = useState(false);
+  // const [isEditProfile, setEditProfile] = useState(false);
   const [name, setName] = useState("Екатерина")
   const [email, setEmail] = useState("kkk@mail.ru");
+  const [isSubmitButton, setIsSubmitButton] = useState(false);
 
   function handleChangeInputName(evt) {
     setName(evt.target.value);
@@ -16,6 +17,10 @@ function Profile(props) {
 
   function onLoginOut() {
     props.onLoginOut();
+  }
+
+  function handleChangeButtonSubmit() {
+    setIsSubmitButton(true)
   }
 
   return(
@@ -50,13 +55,13 @@ function Profile(props) {
           placeholder="E-mail"
         />
         </div>
-        {!isEditProfile ? (
+        {!isSubmitButton ? (
           <>
-            <button className="profile__button-submit" type="submit">Редактировать</button>
+            <button className="profile__button-edit" type="button" onClick={handleChangeButtonSubmit}>Редактировать</button>
             <button className="profile__button-exit" type="button" onClick ={onLoginOut}>Выйти из аккаунта</button>
           </>
         ) : (
-          <button className="profile__button-save" type="submit">Сохранить</button>
+          <button className="profile__button-submit" type="submit">Сохранить</button>
         )}
       </form>
     </div>

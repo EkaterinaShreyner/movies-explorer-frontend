@@ -21,6 +21,12 @@
   position: absolute;
   top: 23px;
   right: 23px;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+}
+
+.menu-mobile__button:hover {
+  opacity: 0.8;
 }
 
 .menu-mobile__container {
@@ -46,6 +52,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  transition: opacity 0.5s linear;
+}
+
+.menu-mobile__item:hover {
+  opacity: 0.7;
 }
 
 .menu-mobile__item_active {
@@ -58,6 +69,11 @@
   width: 100px;
   height: 32px;
   margin-top: 596px;
+  transition: opacity 0.5s linear;
+}
+
+.menu-mobile__profile:hover {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 783px) and (min-width: 599px) {

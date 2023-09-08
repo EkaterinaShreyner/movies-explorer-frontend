@@ -20,7 +20,8 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-between;
 
 }
 
@@ -49,10 +50,35 @@
   border: 0;
   background: url(../../images/save4d.svg) no-repeat;
   padding: 0;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+}
+
+.card__button:hover {
+  opacity: 0.8;
 }
 
 .card__button_active {
   background: url(../../images/save4.svg) no-repeat center;
+  transition: opacity 0.5s linear;
+}
+
+.card__button_active:hover {
+  opacity: 0.8;
+}
+
+.card__button-remove {
+  width: 14px;
+  height: 22px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: url(../../images/d4.svg) no-repeat center;
+  transition: opacity 0.5s linear;
+}
+
+.card__button-remove:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 830px) {

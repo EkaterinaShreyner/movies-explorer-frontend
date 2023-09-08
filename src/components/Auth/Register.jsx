@@ -19,6 +19,7 @@ function Register() {
           className="auth__input"
           name="name"
           type="text"
+          placeholder="Имя"
           required
           minLength="2"
           maxLength="30"
@@ -30,6 +31,7 @@ function Register() {
           name="email"
           type="email"
           id="email"
+          placeholder="E-mail"
           required
         />
         <label className="auth__input-label" htmlFor="password">Пароль</label>
@@ -38,6 +40,7 @@ function Register() {
           name="password"
           type="password"
           id="password"
+          placeholder="Пароль"
           required
         />
         {/* <span className="auth__input-error">Что-то пошло не так</span> */}

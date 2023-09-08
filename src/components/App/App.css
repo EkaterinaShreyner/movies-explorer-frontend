@@ -6,7 +6,7 @@
 
 .page {
   max-width: 1280px;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   background: #202020;
   color: #ffffff;
   margin: auto;

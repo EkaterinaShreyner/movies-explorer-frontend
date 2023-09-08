@@ -62,6 +62,7 @@
   line-height: normal;
   border: 0;
   transition: opacity 0.5s linear;
+  cursor: pointer;
 }
 
 .auth__button:hover {
@@ -81,6 +82,7 @@
 .auth__link {
   color: #4285F4;
   transition: opacity 0.5s linear;
+  text-decoration: none;
 }
 
 .auth__link:hover {

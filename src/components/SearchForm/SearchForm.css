@@ -43,6 +43,12 @@
   position: absolute;
   right: 6px;
   top: 6px;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+}
+
+.search__button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 830px) {
