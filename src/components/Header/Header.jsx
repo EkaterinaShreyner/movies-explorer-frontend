@@ -21,7 +21,7 @@ function Header(props) {
         isMenuMobile={isMenuMobile}
         handleMenuMobile={handleMenuMobile}
       ></MobileMenu>
-    <header className={`header ${currentPath === "/" ? "header_landing" : ""}`}>
+    <header className={`header ${currentPath === "/" ? "header_type_landing" : ""}`}>
       <Link to="/">
         <img 
           src={logo}
