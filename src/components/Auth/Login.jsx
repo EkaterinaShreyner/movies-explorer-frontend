@@ -22,11 +22,11 @@ function Login() {
       <Link to="/">
         <img 
           src={logo}
-          className="header__logo"
-          alt="Логотип проекта" 
+          className="auth__logo"
+          alt="Логотип проекта"
         />
       </Link>
-      <h2 className="auth__title">Рады видеть!</h2>
+      <h1 className="auth__title">Рады видеть!</h1>
       <form className="auth__form" name="form-login" noValidate>
         <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input

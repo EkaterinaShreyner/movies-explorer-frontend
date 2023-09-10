@@ -3,10 +3,10 @@ import React from "react";
 function MoviesCardList(props) {
   return(
     <>
-      <div className="cards">
+      <div className="movies__list">
         {props.children}
       </div>
-      <button className="cards__button">Ещё</button>
+      <button className="movies__button">Ещё</button>
     </>
   )
 }

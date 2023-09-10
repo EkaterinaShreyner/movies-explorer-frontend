@@ -8,11 +8,11 @@ function Register() {
       <Link to="/">
         <img 
           src={logo}
-          className="header__logo"
-          alt="Логотип проекта" 
+          className="auth__logo"
+          alt="Логотип проекта"
         />
       </Link>
-      <h2 className="auth__title">Добро пожаловать!</h2>
+      <h1 className="auth__title">Добро пожаловать!</h1>
       <form className="auth__form" name="form-register" noValidate>
         <label className="auth__input-label" htmlFor="name">Имя</label>
         <input

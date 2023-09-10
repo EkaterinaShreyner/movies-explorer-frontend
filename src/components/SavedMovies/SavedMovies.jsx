@@ -5,8 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 function SavedMovies() {
   return(
-    <>
-    <div className="saved-movies">
+    <div className="movies">
       <SearchForm/>
       <MoviesCardList>
           <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
@@ -14,7 +13,6 @@ function SavedMovies() {
           <MoviesCard movieTitle="33 слова о дизайне"></MoviesCard>
       </MoviesCardList>
     </div>
-    </>
   )
 }
 

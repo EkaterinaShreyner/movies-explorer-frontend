@@ -26,7 +26,7 @@ function Header(props) {
         <img 
           src={logo}
           className="header__logo"
-          alt="Логотип проекта" 
+          alt="Логотип проекта"
         />
       </Link>
       {props.isLoggedIn ? (
