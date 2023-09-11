@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
 function Register() {
+
+
+  const [formValue, setFormValue] = useState({
+    name: "",
+    email: "",
+    passwoed: ""
+  })
+
+  function handleChangeInput(evt) {
+    const {name, value} = evt.target;
+    setFormValue({
+      ...formValue,
+      [name]: value
+    })
+    console.log(formValue)
+  }
+
+  function onRegister(evt) {
+    evt.preventDefault();
+    console.log('submit')
+    // const { name, email, password } = formValue;
+  }
+
   return(
     <div className="auth">
       <Link to="/">
@@ -13,7 +36,7 @@ function Register() {
         />
       </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
-      <form className="auth__form" name="form-register" noValidate>
+      <form className="auth__form" name="form-register"  onSubmit={onRegister}>
         <label className="auth__input-label" htmlFor="name">Имя</label>
         <input
           className="auth__input"
@@ -24,6 +47,7 @@ function Register() {
           minLength="2"
           maxLength="30"
           id="name"
+          onChange={handleChangeInput}
         />
         <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input
@@ -33,6 +57,7 @@ function Register() {
           id="email"
           placeholder="E-mail"
           required
+          onChange={handleChangeInput}
         />
         <label className="auth__input-label" htmlFor="password">Пароль</label>
         <input
@@ -42,6 +67,7 @@ function Register() {
           id="password"
           placeholder="Пароль"
           required
+          onChange={handleChangeInput}
         />
         {/* <span className="auth__input-error">Что-то пошло не так</span> */}
         <button
