@@ -1,0 +1,186 @@
+.about-me {
+  width: 100%;
+  padding: 110px 70px 0;
+  box-sizing: border-box;
+}
+
+.about-me__title {
+  color: #FFF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  margin: 0;
+  padding-bottom: 23px;
+}
+
+.about-me__info {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #DADADA;
+  margin: 0;
+  padding-top: 66px;
+}
+
+.about-me__description {
+  max-width: 600px;
+}
+
+.about-me__name {
+  color: #FFF;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.about-me__occupation {
+  color: #FFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  padding-top: 18px;
+  padding-bottom: 26px;
+}
+
+.about-me__text {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 0;
+  margin-bottom: 99px;
+}
+
+.about-me__link-githab {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  text-decoration: none;
+  transition: opacity 0.5s linear;
+}
+
+.about-me__link-githab:hover {
+  opacity: 0.7;
+}
+
+.about-me__foto {
+  width: 270px;
+  height: 327px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1070px) {
+  .about-me__info {
+    gap: 49px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me {
+    padding: 90px 50px 0;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__foto {
+    width: 255px;
+    height: 307px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__occupation {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 783px) {
+  .about-me__text {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 87px;
+  }
+}
+
+@media screen and (max-width: 601px) {
+  .about-me__foto {
+    width: 225px;
+    height: 270px;
+  }
+}
+
+@media screen and (max-width: 571px) {
+  .about-me__info {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 571px) {
+  .about-me__foto {
+    width: 292px;
+    height: 352px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me {
+    padding: 70px 14px 0;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__info {
+    padding-top: 60px;
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__name {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__occupation {
+      font-size: 11px;
+      line-height: 16px;
+      padding: 20px 0;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .about-me__text {
+    font-size: 11px;
+    margin-bottom: 40px;
+  }
+}
