@@ -1,29 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import { useFormWithValidation } from '../../hook/useForm';
 
-function Register() {
+function Register(props) {
 
+  const { values, handleChange, errors, isFormValid } = useFormWithValidation();
 
-  const [formValue, setFormValue] = useState({
-    name: "",
-    email: "",
-    passwoed: ""
-  })
-
-  function handleChangeInput(evt) {
-    const {name, value} = evt.target;
-    setFormValue({
-      ...formValue,
-      [name]: value
-    })
-    console.log(formValue)
-  }
-
-  function onRegister(evt) {
+  function handleSubmit(evt) {
     evt.preventDefault();
-    console.log('submit')
-    // const { name, email, password } = formValue;
+    props.onRegister(values.name, values.email, values.password);
   }
 
   return(
@@ -36,7 +23,7 @@ function Register() {
         />
       </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
-      <form className="auth__form" name="form-register"  onSubmit={onRegister}>
+      <form className="auth__form" name="form-register"  onSubmit={handleSubmit}>
         <label className="auth__input-label" htmlFor="name">Имя</label>
         <input
           className="auth__input"
@@ -47,8 +34,11 @@ function Register() {
           minLength="2"
           maxLength="30"
           id="name"
-          onChange={handleChangeInput}
+          onChange={handleChange}
+          value={values.name || ""}
+          pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
         />
+        <span className="auth__input-error">{errors.name}</span>
         <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input
           className="auth__input"
@@ -57,8 +47,10 @@ function Register() {
           id="email"
           placeholder="E-mail"
           required
-          onChange={handleChangeInput}
+          onChange={handleChange}
+          value={values.email || ""}
         />
+        <span className="auth__input-error">{errors.email}</span>
         <label className="auth__input-label" htmlFor="password">Пароль</label>
         <input
           className="auth__input"
@@ -67,15 +59,21 @@ function Register() {
           id="password"
           placeholder="Пароль"
           required
-          onChange={handleChangeInput}
+          onChange={handleChange}
+          value={values.password || ""}
         />
-        {/* <span className="auth__input-error">Что-то пошло не так</span> */}
-        <button
-        className="auth__button"
-        type="submit"
-        >
-          Зарегистрироваться
-        </button>
+        <span className="auth__input-error">{errors.password}</span>
+        <div style={{display: "flex", flexDirection: "column"}}>
+          <span className="auth__error">{props.errorMessage}</span>
+          <button
+          className={`auth__button ${isFormValid ? "" : "auth__button_disabled"}`}
+          type="submit"
+          disabled={!isFormValid}
+          >
+            Зарегистрироваться
+          </button>
+        </div>
+       
       </form>
       <p className="auth__confirm">
         Уже зарегистрированы?{" "}

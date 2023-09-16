@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-function FilterCheckbox() {
+function FilterCheckbox(props) {
+
   return(
     <div className="filter">
-      <input type="checkbox" name="filter" className="filter__input" id="filter"/>
+      <input
+        type="checkbox"
+        name="filter"
+        className="filter__input"
+        id="filter"
+        onChange={props.onChangeShotMovies}
+        checked={props.isChecked}
+      />
       <label className="filter__label" htmlFor="filter">Короткометражки</label>
     </div>
   )

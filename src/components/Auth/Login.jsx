@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import { useFormWithValidation } from '../../hook/useForm';
 
-function Login() {
+function Login(props) {
 
-  const [formValue, setFormValue] = useState({
-    email: "kkk@mail.ru",
-    password: ""
-  });
+  const { values, handleChange, errors, isFormValid } = useFormWithValidation();
 
-  function handleChangeInput(evt) {
-    const {name, value} = evt.target;
-    setFormValue({
-      ...formValue,
-      [name]: value
-    })
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    props.onLogin(values.email, values.password);
   }
 
   return(
@@ -27,7 +22,7 @@ function Login() {
         />
       </Link>
       <h1 className="auth__title">Рады видеть!</h1>
-      <form className="auth__form" name="form-login" noValidate>
+      <form className="auth__form" name="form-login" noValidate onSubmit={handleSubmit}>
         <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input
           className="auth__input"
@@ -36,9 +31,10 @@ function Login() {
           id="email"
           placeholder="E-mail"
           required
-          onChange={handleChangeInput}
-          value={formValue.email || ""}
+          onChange={handleChange}
+          value={values.email || ""}
         />
+        <span className="auth__input-error">{errors.email}</span>
         <label className="auth__input-label" htmlFor="password">Пароль</label>
         <input
           className="auth__input"
@@ -47,11 +43,15 @@ function Login() {
           id="password"
           placeholder="Пароль"
           required
-          onChange={handleChangeInput}
+          onChange={handleChange}
+          value={values.password || ""}
         />
+        <span className="auth__input-error">{errors.password}</span>
+        <span className="auth__error">{props.errorMessage}</span>
         <button
-        className="auth__button"
+        className={`auth__button ${isFormValid ? "" : "auth__button_disabled"}`}
         type="submit"
+        disabled={!isFormValid}
         >
           Войти
         </button>

@@ -1,10 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm() {
+function SearchForm(props) {
+
+  // состояние чекбокса
+  const [isChecked, setIsChecked] = useState(false);
+
   return(
     <div className="search">
-      <form className="search__form" name="form-search">
+      <form className="search__form" name="form-search" onSubmit={props.handleSearchMovies}>
         <label className="search__input-label" htmlFor="movie-title"></label>
         <input
           className="search__input"
@@ -12,10 +17,12 @@ function SearchForm() {
           type="text"
           id="movie-title"
           placeholder="Фильм"
+          value={props.searchText}
+          onChange={props.searchChange}
         />
         <button className="search__button" type="submit"></button>
       </form>
-      <FilterCheckbox></FilterCheckbox>
+      <FilterCheckbox onChangeShotMovies={props.onChangeShotMovies} checked={isChecked}></FilterCheckbox>
     </div>
   )
 }

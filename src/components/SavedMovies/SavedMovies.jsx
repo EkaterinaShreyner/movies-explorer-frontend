@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 function SavedMovies() {
+
+  const [isSavedMovie, setIsSavedMovie] = useState([]);
+  
   return(
     <div className="movies">
       <SearchForm/>
