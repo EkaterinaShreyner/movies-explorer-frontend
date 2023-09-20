@@ -29,6 +29,10 @@
   opacity: 0.8;
 }
 
+.movies__button_hidden {
+  display: none;
+}
+
 @media screen and (max-width: 830px) {
   .movies__list {
     grid-template-columns: repeat(auto-fill, 339px);

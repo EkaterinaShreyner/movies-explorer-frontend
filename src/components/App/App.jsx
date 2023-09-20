@@ -34,11 +34,12 @@ function App() {
   // глобальный стейт данных пользователя
   const [currentUser, setCurrentUser] = useState({});
   // массив фильмов
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
+  // сохраненные фильмы
+  const [moviesSaved, setMoviesSaved] = useState([]);
 
   // сообщение об ошибке от сервера
   const [isErrorMessage, setIsErrorMessage] = useState("");
-  const [isSuccessMessage, setIsSuccessMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -52,19 +53,7 @@ function App() {
   //       .catch((err) => {
   //         console.error(`Ошибка ${err}`);
   //       });
-  //     // api.getMovies()
-  //     //   .then((movies) => {
-  //     //     // localStorage.getItem("movies");
-  //     //   localStorage.getItem("movies", JSON.parse(movies));
-  //     //   setMovies(movies)
-  //     //   // setMovies(JSON.parse(localStorage.getItem("movies")));
-  //     //   })
-  //     //   .catch((err) => {
-  //     //     console.error(`Ошибка ${err}`);
-  //     //   });
   //   }
-
-
   // }, [isLoggedIn]);
 
   function onRegister(name, email, password) {
@@ -141,11 +130,9 @@ function App() {
       mainApi.getCurrentUser(token)
         .then((dataUser) => {
           setCurrentUser(dataUser)
-          console.log(dataUser)
         })
         .catch((err) => {
           console.log(err)
-          
         })
     }
   }, [isLoggedIn])
@@ -176,6 +163,23 @@ function App() {
   function onLoginOut() {
     setIsLoggedIn(false);
     navigate("/", { replace: true });
+  }
+
+  function handleSaveMovies(movie) {
+    const token = localStorage.getItem("token");
+    mainApi.saveMovie(movie, token)
+      .then(() => {
+        // setMoviesSaved()
+        console.log("фильм добавлен")
+      })
+      .catch((err) => {
+        if (err === STATUS_CODE_400) {
+          console.log("Переданы некорректные данные карточки")
+        }
+        if (err === STATUS_CODE_401) {
+          console.log("Необходима авторизация")
+        }
+      })
   }
 
   return (
@@ -214,7 +218,7 @@ function App() {
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <>
                     <Header isLoggedIn={isLoggedIn} />
-                    <Movies movies={movies} />
+                    <Movies saveMovies={handleSaveMovies}/>
                     <Footer />
                   </>
                 </ProtectedRoute>

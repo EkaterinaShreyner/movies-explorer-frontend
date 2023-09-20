@@ -9,7 +9,7 @@ function FilterCheckbox(props) {
         name="filter"
         className="filter__input"
         id="filter"
-        onChange={props.onChangeShotMovies}
+        onChange={props.onChangeCheckbox}
         checked={props.isChecked}
       />
       <label className="filter__label" htmlFor="filter">Короткометражки</label>

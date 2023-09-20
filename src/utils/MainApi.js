@@ -57,14 +57,13 @@ class Api {
   }
 
   // сохранить фильм
-  saveMovie(movie) {
+  saveMovie(movie, token) {
     return fetch(`${this._url}/movies`, {
       method: 'POST',
-      headers: this._headers,
-      // headers: {
-      //   ...this._headers,
-      //   authorization : `Bearer ${token}`,
-      // }
+      headers: {
+        ...this._headers,
+        authorization : `Bearer ${token}`,
+      },
       body: JSON.stringify({
         country: movie.country,
         director: movie.director,
