@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-// import { useFormWithValidation } from '../../hook/useForm';
+import { ERROR_MESSAGE } from "../../utils/constants";
+import { useLocation } from "react-router-dom";
 
 function SearchForm(props) {
 
-  // const { values, setValues, handleChange, errors, setErrors, isFormValid } = useFormWithValidation();
-   // состояние текста в поиске
-  //  const [searchText, setSearchText] = useState("");
+  const location = useLocation()
+  const currentPath = location.pathname
+
+  // ошибка при запросе в случае пустого поля
+  const [inputError, setInputError] = useState("");
 
   function handleChange(evt) {
     props.setSearchText(evt.target.value);
@@ -14,22 +17,13 @@ function SearchForm(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    if (props.searchText) {
-    //   setErrors({search: "Введите название фильма"})
-    // } else {
-    //   props.handleSearchMovies(values.search);
-    // }
-    props.handleSearchMovies()
+    if (props.searchText === "" && currentPath === "/movies") {
+      setInputError(ERROR_MESSAGE.EMPTY_TEXT_INPUT)
+    } else {
+      setInputError("")
+      props.handleSearchMovies()
     }
   }
-
-  // useEffect(() => {
-  //   // если пользователь повторно переходит на страницу "Фильмы",
-  //   if (location.pathname === "./movies") {
-  //     // достаем текст запроса из локального хранилища браузера
-  //     setValues({ search: localStorage.getItem("search") });
-  //   }
-  // }, [location.pathname, setValues]);
 
   return(
     <div className="search">
@@ -40,16 +34,14 @@ function SearchForm(props) {
           name="search"
           type="text"
           placeholder="Фильм"
-          // value={values.search || ""}
           value={props.searchText}
           onChange={handleChange}
           required
           minLength="1"
         />
-        <span className="search__input-error"></span>
-        {/* <span className={`search__input-error ${!isFormValid ? "search__input-error_active" : ""}`}>{errors.search}</span> */}
+        {/* {currentPath ==="/movies" && <span className="search__input-error">{inputError}</span>} */}
+        <span className="search__input-error">{inputError}</span>
         <button
-          // className={`search__button ${!isFormValid ? "search__button_disabled" : ""}`}
           className="search__button"
           type="submit"
           // disabled={!isFormValid}

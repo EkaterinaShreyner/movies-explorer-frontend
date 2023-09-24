@@ -5,6 +5,8 @@ const STATUS_CODE_409 = 409;
 const ERROR_MESSAGE = {
   BAD_REQUEST_PROFILE: "При обновлении профиля произошла ошибка",
   CONFLICT_USER_DATA: "Пользователь с таким email уже существует.",
+  NOT_FOUND_MOVIES: "Ничего не найдено",
+  EMPTY_TEXT_INPUT: "Введите название фильма",
   userId: 'Пользователь c таким id не найден',
   langRu: 'Название должно быть на русском языке',
   langEn: 'Название должно быть на английском языке',
@@ -14,7 +16,7 @@ const ERROR_MESSAGE = {
   server: 'На сервере произошла ошибка',
   movieId: 'Фильм с таким id не найдена',
   movieOwner: 'Попытка удаление чужого фильма невозможна',
-  movieData: 'Переданы некорректные данные фильма',
+  // movieData: 'Переданы некорректные данные фильма',
   movieDataId: 'Переданы некорректные данные id фильма',
   notFound: 'Страница не найдена',
 };
@@ -26,5 +28,5 @@ export {
   STATUS_CODE_401,
   STATUS_CODE_409,
   ERROR_MESSAGE,
-  SUCCESS_MESSAGE
+  SUCCESS_MESSAGE,
 }

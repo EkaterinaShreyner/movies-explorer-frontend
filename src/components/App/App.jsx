@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from "react";
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 
 import './App.css';
@@ -42,19 +42,7 @@ function App() {
   const [isErrorMessage, setIsErrorMessage] = useState("");
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (isLoggedIn) {
-  //     moviesApi.getMovies()
-  //       .then((movies) => {
-  //         localStorage.setItem("movies", JSON.stringify(movies));
-  //         // setMovies(movies)
-  //       })
-  //       .catch((err) => {
-  //         console.error(`Ошибка ${err}`);
-  //       });
-  //   }
-  // }, [isLoggedIn]);
+  const location = useLocation()
 
   function onRegister(name, email, password) {
     authApi.register(name, email, password)
@@ -96,6 +84,12 @@ function App() {
       })
   }
 
+  // срабатывает функция проверка токена единыжды при отрисовки компонента App
+  useEffect(() => {
+    handleCheckToken();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // запрос на проверку валидности токена
   function handleCheckToken() {
     const token = localStorage.getItem("token");
@@ -106,8 +100,8 @@ function App() {
         if (res) {
           setCurrentUser(res) // получаем данные пользователя в переменной состояния
           setIsLoggedIn(true);
-          navigate("/", {replace: true}) // пользователь переходит на главную страницу
-          console.log(res)
+          // navigate("/", {replace: true}) // пользователь переходит на главную страницу
+          navigate(location.pathname) // пользователь переходит на ту же страницу где был
         }
         return;
       })
@@ -118,11 +112,6 @@ function App() {
     }
   }
 
-  // срабатывает функция проверка токена единыжды при отрисовки компонента App
-  useEffect(() => {
-    handleCheckToken();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -136,6 +125,7 @@ function App() {
         })
     }
   }, [isLoggedIn])
+
 
   function handleUpdateUser(dataUser) {
     const token = localStorage.getItem("token");
@@ -162,15 +152,24 @@ function App() {
 
   function onLoginOut() {
     setIsLoggedIn(false);
+    localStorage.removeItem("filterMoviesName");
+    localStorage.removeItem("filterShortMovies");
+    localStorage.removeItem("isCheckbox");
+    localStorage.removeItem("searchInput");
+    localStorage.removeItem("movies");
+    setMoviesSaved([]);
+    setCurrentUser({})
     navigate("/", { replace: true });
   }
 
-  function handleSaveMovies(movie) {
+  function handleSaveMovie(movie) {
     const token = localStorage.getItem("token");
     mainApi.saveMovie(movie, token)
-      .then(() => {
-        // setMoviesSaved()
+      .then((movie) => {
+        setMoviesSaved([movie, ...moviesSaved])
         console.log("фильм добавлен")
+        console.log(movie)
+        console.log(moviesSaved)
       })
       .catch((err) => {
         if (err === STATUS_CODE_400) {
@@ -181,6 +180,40 @@ function App() {
         }
       })
   }
+
+  function handleDeleteMovie(movie) {
+    const token = localStorage.getItem("token");
+    mainApi.deleteMovie(movie._id, token)
+      .then((movie) => {
+        setMoviesSaved((moviesSaved) => moviesSaved.filter((el) => el.movieId !== movie.movieId));
+      })
+      .catch((err) => {
+        if (err === STATUS_CODE_400) {
+          console.log("Переданы некорректные данные карточки")
+        }
+        if (err === STATUS_CODE_401) {
+          console.log("Необходима авторизация")
+        }
+      });
+  }
+
+  useEffect(() => {
+    // if (location.pathname === "/saved-movies" || location.pathname === "/movies") {
+    if (isLoggedIn) {
+      const token = localStorage.getItem("token");
+      mainApi.getMovies(token)
+        .then((moviesSaved) => {
+          // setIsLoggedIn(true)
+          setMoviesSaved(moviesSaved)
+        })
+        .catch((err) => {
+          if (err === STATUS_CODE_401) {
+            console.log("Необходима авторизация")
+          }
+          console.log(err)
+        });
+      }
+  }, [isLoggedIn]);
 
   return (
     <div className="root">
@@ -218,7 +251,7 @@ function App() {
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <>
                     <Header isLoggedIn={isLoggedIn} />
-                    <Movies saveMovies={handleSaveMovies}/>
+                    <Movies saveMovie={handleSaveMovie} deleteMovie={handleDeleteMovie} moviesSaved={moviesSaved}/>
                     <Footer />
                   </>
                 </ProtectedRoute>
@@ -230,7 +263,7 @@ function App() {
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <>
                     <Header isLoggedIn={isLoggedIn} />
-                    <SavedMovies />
+                    <SavedMovies moviesSaved={moviesSaved} deleteMovie={handleDeleteMovie} setMoviesSaved={setMoviesSaved}/>
                     <Footer />
                   </>
                 </ProtectedRoute>

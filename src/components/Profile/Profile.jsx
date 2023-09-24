@@ -72,6 +72,7 @@ function Profile(props) {
           value={values.email || ""}
           onChange={handleChange}
           placeholder="E-mail"
+          // pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           disabled={isInputDisabled}
         />
         <span className="profile__input-error">{errors.email}</span>

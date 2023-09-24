@@ -80,7 +80,19 @@ class Api {
     })
       .then(this._getResponse)
   }
+
+  deleteMovie(movieId, token) {
+    return fetch(`${this._url}/movies/${movieId}`, {
+      method: 'DELETE',
+      headers: {
+        ...this._headers,
+        authorization : `Bearer ${token}`,
+      },
+    })
+      .then(this._getResponse);
+  }
 }
+
 
 const mainApi = new Api({
   url: 'http://localhost:4000',
