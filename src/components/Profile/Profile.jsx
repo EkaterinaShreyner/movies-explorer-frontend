@@ -43,48 +43,54 @@ function Profile(props) {
   return(
     <div className="profile">
       <h2 className="profile__title">{`Привет, ${currentUser.name}`}</h2>
-      <form className="profile__form" name="form-profile" noValidate onSubmit={handleSubmit}>
+      <form className="profile__form" name="form-profile" noValidate onSubmit={handleSubmit} autoComplete="on">
         <div className="profile__container">
-          <label className="profile__input-label" htmlFor="name">Имя</label>
-          <input
-            className="profile__input"
-            type="text"
-            name="name"
-            id="name"
-            minLength="2"
-            maxLength="30"
-            required
-            value={values.name || ""}
-            onChange={handleChange}
-            placeholder="Имя"
-            disabled={isInputDisabled}
-          />
+          <div className="profile__element">
+            <label className="profile__input-label" htmlFor="name">Имя</label>
+            <input
+              className="profile__input"
+              type="text"
+              name="name"
+              id="name"
+              minLength="2"
+              maxLength="30"
+              required
+              value={values.name || ""}
+              onChange={handleChange}
+              placeholder="Имя"
+              pattern="^[A-Za-zА-Яа-я\s\-]{2,30}$"
+              disabled={isInputDisabled}
+            />
+          </div>
           <span className="profile__input-error">{errors.name}</span>
         </div>
         <div className="profile__container">
-        <label className="profile__input-label" htmlFor="email">E-mail</label>
-        <input
-          className="profile__input"
-          type="email"
-          name="email"
-          id="email"
-          required
-          value={values.email || ""}
-          onChange={handleChange}
-          placeholder="E-mail"
-          // pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          disabled={isInputDisabled}
-        />
+          <div className="profile__element">
+            <label className="profile__input-label" htmlFor="email">E-mail</label>
+            <input
+              className="profile__input"
+              type="email"
+              name="email"
+              id="email"
+              required
+              value={values.email || ""}
+              onChange={handleChange}
+              placeholder="E-mail"
+              pattern="[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-z]{2,}"
+              disabled={isInputDisabled}
+            />
+          </div>
         <span className="profile__input-error">{errors.email}</span>
         </div>
         <span className="profile__error">{props.errorMessage}</span>
+        <span className="profile__success">{props.successMessage}</span>
         {!isSubmitButton ? (
           <>
             <button className="profile__button-edit" type="button" onClick={handleChangeButtonEdit}>Редактировать</button>
             <button className="profile__button-exit" type="button" onClick ={onLoginOut}>Выйти из аккаунта</button>
           </>
         ) : (
-          <button className={`profile__button-submit ${isFormValid ? "" : "profile__button-submit_disabled"}`}
+          <button className={`profile__button-submit ${isFormValid && !(currentUser.name === values.name && currentUser.email === values.email) ? "" : "profile__button-submit_disabled"}`}
             type="submit"
           >
             Сохранить

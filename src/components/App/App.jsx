@@ -13,7 +13,6 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import Profile from '../Profile/Profile';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import * as moviesApi from '../../utils/MoviesApi';
 import mainApi from "../../utils/MainApi";
 import * as authApi from "../../utils/AuthApi";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
@@ -33,13 +32,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // глобальный стейт данных пользователя
   const [currentUser, setCurrentUser] = useState({});
-  // массив фильмов
-  // const [movies, setMovies] = useState([]);
   // сохраненные фильмы
   const [moviesSaved, setMoviesSaved] = useState([]);
-
   // сообщение об ошибке от сервера
   const [isErrorMessage, setIsErrorMessage] = useState("");
+  // сообщение об успешном изменении данных пользователя
+  const [isSuccessMessage, setIsSuccessMessage] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation()
@@ -106,12 +104,10 @@ function App() {
         return;
       })
       .catch(() => {
-        // console.error(`Ошибка валидности токена: ${err}`)
         setIsLoggedIn(false)
       })
     }
   }
-
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -126,7 +122,6 @@ function App() {
     }
   }, [isLoggedIn])
 
-
   function handleUpdateUser(dataUser) {
     const token = localStorage.getItem("token");
     mainApi.patchUserInfo(dataUser, token) 
@@ -135,7 +130,7 @@ function App() {
           name: dataUser.name,
           email: dataUser.email,
         })
-        setIsErrorMessage(SUCCESS_MESSAGE);
+        setIsSuccessMessage(SUCCESS_MESSAGE)
       })
       .catch((err) => {
         if (err === STATUS_CODE_409) {
@@ -147,6 +142,7 @@ function App() {
       })
       .finally(() => {
         setTimeout(() => setIsErrorMessage(""), 2000)
+        setTimeout(() => setIsSuccessMessage(""), 2000)
       })
   }
 
@@ -157,7 +153,8 @@ function App() {
     localStorage.removeItem("isCheckbox");
     localStorage.removeItem("searchInput");
     localStorage.removeItem("movies");
-    setMoviesSaved([]);
+    localStorage.removeItem("token");
+    // setMoviesSaved([]);
     setCurrentUser({})
     navigate("/", { replace: true });
   }
@@ -167,9 +164,6 @@ function App() {
     mainApi.saveMovie(movie, token)
       .then((movie) => {
         setMoviesSaved([movie, ...moviesSaved])
-        console.log("фильм добавлен")
-        console.log(movie)
-        console.log(moviesSaved)
       })
       .catch((err) => {
         if (err === STATUS_CODE_400) {
@@ -198,7 +192,6 @@ function App() {
   }
 
   useEffect(() => {
-    // if (location.pathname === "/saved-movies" || location.pathname === "/movies") {
     if (isLoggedIn) {
       const token = localStorage.getItem("token");
       mainApi.getMovies(token)
@@ -240,7 +233,7 @@ function App() {
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
                   <>
                     <Header isLoggedIn={isLoggedIn} />
-                    <Profile onLoginOut={onLoginOut} onUpdateUser={handleUpdateUser} errorMessage={isErrorMessage}/>
+                    <Profile onLoginOut={onLoginOut} onUpdateUser={handleUpdateUser} errorMessage={isErrorMessage} successMessage={isSuccessMessage}/>
                   </>
                 </ProtectedRoute>
               }

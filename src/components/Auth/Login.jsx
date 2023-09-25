@@ -22,7 +22,7 @@ function Login(props) {
         />
       </Link>
       <h1 className="auth__title">Рады видеть!</h1>
-      <form className="auth__form" name="form-login" noValidate onSubmit={handleSubmit}>
+      <form className="auth__form" name="form-login" noValidate onSubmit={handleSubmit} autoComplete="on">
         <label className="auth__input-label" htmlFor="email">E-mail</label>
         <input
           className="auth__input"
@@ -30,7 +30,7 @@ function Login(props) {
           type="email"
           id="email"
           placeholder="E-mail"
-          // pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          pattern="[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-z]{2,}"
           required
           onChange={handleChange}
           value={values.email || ""}

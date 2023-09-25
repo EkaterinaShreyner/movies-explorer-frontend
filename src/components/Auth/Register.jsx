@@ -1,5 +1,4 @@
 import React from 'react';
-// import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import { useFormWithValidation } from '../../hook/useForm';
@@ -23,7 +22,7 @@ function Register(props) {
         />
       </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
-      <form className="auth__form" name="form-register"  onSubmit={handleSubmit}>
+      <form className="auth__form" name="form-register"  onSubmit={handleSubmit} autoComplete="on">
         <label className="auth__input-label" htmlFor="name">Имя</label>
         <input
           className="auth__input"
@@ -36,7 +35,7 @@ function Register(props) {
           id="name"
           onChange={handleChange}
           value={values.name || ""}
-          pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
+          pattern="^[A-Za-zА-Яа-я\s\-]{2,30}$"
         />
         <span className="auth__input-error">{errors.name}</span>
         <label className="auth__input-label" htmlFor="email">E-mail</label>
@@ -46,8 +45,7 @@ function Register(props) {
           type="email"
           id="email"
           placeholder="E-mail"
-          // pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          required
+          pattern="[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-z]{2,}"
           onChange={handleChange}
           value={values.email || ""}
         />

@@ -34,21 +34,20 @@ function SearchForm(props) {
           name="search"
           type="text"
           placeholder="Фильм"
-          value={props.searchText}
+          value={props.searchText || ""}
           onChange={handleChange}
           required
           minLength="1"
         />
-        {/* {currentPath ==="/movies" && <span className="search__input-error">{inputError}</span>} */}
-        <span className="search__input-error">{inputError}</span>
+        {currentPath ==="/movies" && <span className="search__input-error">{inputError}</span>}
+        {/* <span className="search__input-error">{inputError}</span> */}
         <button
           className="search__button"
           type="submit"
-          // disabled={!isFormValid}
         >
         </button>
       </form>
-      <FilterCheckbox onChangeCheckbox={props.onChangeCheckbox} checked={props.isChecked}></FilterCheckbox>
+      <FilterCheckbox onChangeCheckbox={props.onChangeCheckbox} isChecked={props.isChecked}></FilterCheckbox>
     </div>
   )
 }
