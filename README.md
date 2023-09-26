@@ -49,4 +49,4 @@ IP: 158.160.107.131
 
 Приложение: https://my-movies.nomoredomainsicu.ru  
 
-Pull-request: 
+Pull-request: https://github.com/EkaterinaShreyner/movies-explorer-frontend/pull/3
