@@ -17,7 +17,7 @@ function SearchForm(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    if (props.searchText === "" && currentPath === "/movies") {
+    if ((props.searchText === null || props.searchText === "") && currentPath === "/movies") {
       setInputError(ERROR_MESSAGE.EMPTY_TEXT_INPUT)
     } else {
       setInputError("")

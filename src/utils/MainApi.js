@@ -95,11 +95,9 @@ class Api {
 
 
 const mainApi = new Api({
-  url: 'http://localhost:4000',
-  // url: 'http://localhost:3000',
-  // url: 'https://api.my-movies.nomoredomainsicu.ru',
+  // url: 'http://localhost:4000',
+  url: 'https://api.my-movies.nomoredomainsicu.ru',
   headers: {
-    // authorization: 'eb88a784-5abe-4513-8117-377adafa9ddc',
     // authorization: `Bearer ${localStorage.getItem("token")}`,
     'Content-Type': 'application/json'
   }

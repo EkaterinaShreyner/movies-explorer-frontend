@@ -47,4 +47,6 @@ IP: 158.160.107.131
 
 Домен backend: https://api.my-movies.nomoredomainsicu.ru  
 
-Приложение: https://my-movies.nomoredomainsicu.ru 
+Приложение: https://my-movies.nomoredomainsicu.ru  
+
+Pull-request: 

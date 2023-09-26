@@ -26,10 +26,6 @@ function Movies(props) {
   
   // поиск фильмов по названию на странице фильмов, включая первый запрос
   function handleSearchMovies() {
-
-  if (searchText === "") { 
-    setError("Введите название фильма")
-  }
   if (!localStorage.getItem("movies")) {
     setIsLoading(true)
     moviesApi.getMovies()
@@ -95,6 +91,7 @@ function Movies(props) {
       if (filterShortMovies.length === 0) {
         console.log("Нет короткометражек")
         setMoviesList([])
+        setError(ERROR_MESSAGE.NOT_FOUND_MOVIES)
       } else {
         setMoviesList(filterShortMovies)
       } 
@@ -105,6 +102,7 @@ function Movies(props) {
       setMoviesList(filterMoviesName)
       localStorage.setItem("searchInput", searchText ?? "")
       localStorage.setItem("filterMoviesName", JSON.stringify(filterMoviesName))
+      setError("")
     }
   }
 
@@ -130,7 +128,7 @@ function Movies(props) {
           isChecked={isChecked}
           setSearchText={setSearchText}
           searchText={searchText}
-          error={error}
+          // error={error}
           />
         {isLoading && !error && <Preloader />}
         <MoviesCardList
