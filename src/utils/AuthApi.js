@@ -1,5 +1,5 @@
-// export const BASE_URL = "http://localhost:4000";
-export const BASE_URL = "https://api.my-movies.nomoredomainsicu.ru";
+export const BASE_URL = "http://localhost:4000";
+// export const BASE_URL = "https://api.my-movies.nomoredomainsicu.ru";
 
 // регистрация пользователя
 export const register = (name, email, password) => {

@@ -38,12 +38,14 @@ function SearchForm(props) {
           onChange={handleChange}
           required
           minLength="1"
+          disabled={props.isLoading}
         />
         {currentPath ==="/movies" && <span className="search__input-error">{inputError}</span>}
         {/* <span className="search__input-error">{inputError}</span> */}
-        <button
+        <button 
           className="search__button"
           type="submit"
+          disabled={props.isLoading} 
         >
         </button>
       </form>

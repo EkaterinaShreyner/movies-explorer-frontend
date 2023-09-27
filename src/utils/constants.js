@@ -11,6 +11,26 @@ const ERROR_MESSAGE = {
   USER_CREDENTIALS: "Вы ввели неправильный логин или пароль",
 };
 
+const DURATION_SHORT_MOVIES = 40;
+
+const SCREEN_SIZE = {
+  DESKTOP: 1280,
+  TABLET: 783,
+  MOBILE: 320
+}
+
+const MORE_MOVIES = {
+  DESKTOP: 3,
+  TABLET: 2,
+  MOBILE: 2
+}
+
+const DISPLAYED_MOVIES = {
+  DESKTOP: 12,
+  TABLET: 8,
+  MOBILE: 5
+}
+
 const SUCCESS_MESSAGE = "Данные успешно обновлены";
 
 export {
@@ -19,4 +39,8 @@ export {
   STATUS_CODE_409,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE,
+  DURATION_SHORT_MOVIES,
+  SCREEN_SIZE,
+  MORE_MOVIES,
+  DISPLAYED_MOVIES
 }

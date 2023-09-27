@@ -99,6 +99,8 @@
 
 .header__nav-item_active {
   font-weight: 500;
+  font-size: 14px;
+  
 }
 
 .header__nav-profile {

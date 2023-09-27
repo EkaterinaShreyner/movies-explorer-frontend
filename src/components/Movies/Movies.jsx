@@ -5,7 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
 import * as moviesApi from '../../utils/MoviesApi';
 import { useLocation } from "react-router-dom";
-import { ERROR_MESSAGE } from "../../utils/constants";
+import { ERROR_MESSAGE, DURATION_SHORT_MOVIES } from "../../utils/constants";
 
 function Movies(props) {
 
@@ -38,7 +38,7 @@ function Movies(props) {
         localStorage.setItem("filterMoviesName", JSON.stringify(filterMoviesName))
         setMoviesList(filterMoviesName)
         if (filterMoviesName.length < 1) {
-          return setTimeout(() => setError(ERROR_MESSAGE.NOT_FOUND_MOVIES), 3000) 
+          setError(ERROR_MESSAGE.NOT_FOUND_MOVIES)
         }
       })
       .catch((err) => {
@@ -52,7 +52,7 @@ function Movies(props) {
       setIsLoading(true)
       const moviesFromLocal = JSON.parse(localStorage.getItem("movies"));
       const filterMoviesName = moviesFromLocal.filter((movie) => (movie.nameRU.toLowerCase().includes(searchText.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchText.toLowerCase())))
-      const filterShortMovies = filterMoviesName.filter((movie) => (movie.duration <= 40))
+      const filterShortMovies = filterMoviesName.filter((movie) => (movie.duration <= DURATION_SHORT_MOVIES))
       localStorage.setItem("filterShortMovies", JSON.stringify(filterShortMovies))
       if (filterShortMovies.length === 0) {
         setMoviesList([])
@@ -66,9 +66,14 @@ function Movies(props) {
       const moviesFromLocal = JSON.parse(localStorage.getItem("movies"));
       const filterMoviesName = moviesFromLocal.filter((movie) => (movie.nameRU.toLowerCase().includes(searchText.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchText.toLowerCase())))
       localStorage.setItem("filterMoviesName", JSON.stringify(filterMoviesName))
-      setMoviesList(filterMoviesName)
-      setIsLoading(false)
-      setError("")
+      if (filterMoviesName.length < 1) {
+        setMoviesList([])
+        setError(ERROR_MESSAGE.NOT_FOUND_MOVIES)
+      } else {
+        setMoviesList(filterMoviesName)
+        setIsLoading(false)
+        setError("")
+      }
     }
   }
 }
@@ -99,10 +104,14 @@ function Movies(props) {
       localStorage.getItem("searchInput")
       const moviesFromLocal = JSON.parse(localStorage.getItem("movies"));
       const filterMoviesName = moviesFromLocal.filter((movie) => (movie.nameRU.toLowerCase().includes(searchText.toLowerCase()) || movie.nameEN.toLowerCase().includes(searchText.toLowerCase())))
-      setMoviesList(filterMoviesName)
-      localStorage.setItem("searchInput", searchText ?? "")
-      localStorage.setItem("filterMoviesName", JSON.stringify(filterMoviesName))
-      setError("")
+      if (filterMoviesName.length < 1) {
+        setError(ERROR_MESSAGE.NOT_FOUND_MOVIES)
+      } else {
+        setMoviesList(filterMoviesName)
+        localStorage.setItem("searchInput", searchText ?? "")
+        localStorage.setItem("filterMoviesName", JSON.stringify(filterMoviesName))
+        setError("")
+      }
     }
   }
 
@@ -128,7 +137,7 @@ function Movies(props) {
           isChecked={isChecked}
           setSearchText={setSearchText}
           searchText={searchText}
-          // error={error}
+          isLoading={isLoading}
           />
         {isLoading && !error && <Preloader />}
         <MoviesCardList

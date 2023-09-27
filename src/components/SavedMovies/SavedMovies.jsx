@@ -57,6 +57,9 @@ function SavedMovies(props) {
   }
 
   useEffect(() => {
+    if (searchText !== "") {
+      return handleSearchFilteredMovies()
+    }
     return setMoviesSavedFilter(props.moviesSaved);
   }, [props.moviesSaved]);
 

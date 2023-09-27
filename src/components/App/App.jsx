@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from "react";
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-
+import { Route, Routes, useLocation, useNavigate, Navigate } from 'react-router-dom';
 
 import './App.css';
 import Footer from '../Footer/Footer';
@@ -24,8 +23,6 @@ import {
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
 } from '../../utils/constants';
-
-
 
 function App() {
   // залогигенный пользователь
@@ -82,12 +79,12 @@ function App() {
       })
   }
 
-  // срабатывает функция проверка токена единыжды при отрисовки компонента App
-  useEffect(() => {
+   // срабатывает функция проверка токена единыжды при отрисовки компонента App
+   useEffect(() => {
     handleCheckToken();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+ 
   // запрос на проверку валидности токена
   function handleCheckToken() {
     const token = localStorage.getItem("token");
@@ -98,8 +95,7 @@ function App() {
         if (res) {
           setCurrentUser(res) // получаем данные пользователя в переменной состояния
           setIsLoggedIn(true);
-          // navigate("/", {replace: true}) // пользователь переходит на главную страницу
-          navigate(location.pathname) // пользователь переходит на ту же страницу где был
+          navigate(location.pathname)
         }
         return;
       })
@@ -154,7 +150,6 @@ function App() {
     localStorage.removeItem("searchInput");
     localStorage.removeItem("movies");
     localStorage.removeItem("token");
-    // setMoviesSaved([]);
     setCurrentUser({})
     navigate("/", { replace: true });
   }
@@ -179,7 +174,8 @@ function App() {
     const token = localStorage.getItem("token");
     mainApi.deleteMovie(movie._id, token)
       .then((movie) => {
-        setMoviesSaved((moviesSaved) => moviesSaved.filter((el) => el.movieId !== movie.movieId));
+        setMoviesSaved(m => m.filter((el) => el._id !== movie._id));
+        console.log(moviesSaved)
       })
       .catch((err) => {
         if (err === STATUS_CODE_400) {
@@ -225,8 +221,34 @@ function App() {
                 </>
               }
             ></Route>
-            <Route path="/sign-up" element={<Register onRegister={onRegister} errorMessage={isErrorMessage} setIsErrorMessage={setIsErrorMessage}/>} />
-            <Route path="/sign-in" element={<Login onLogin={onLogin} errorMessage={isErrorMessage} setIsErrorMessage={setIsErrorMessage}/>} />
+            <Route
+              path="/sign-up"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/"/>
+                ) : (
+                  <Register
+                    onRegister={onRegister}
+                    errorMessage={isErrorMessage}
+                    setIsErrorMessage={setIsErrorMessage}
+                  />
+                )
+                }
+              ></Route>
+            <Route
+              path="/sign-in"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/"/>
+                ) : (
+                  <Login
+                    onLogin={onLogin}
+                    errorMessage={isErrorMessage}
+                    setIsErrorMessage={setIsErrorMessage}
+                  />
+                )
+              }
+            ></Route>
             <Route
               path="/profile"
               element={

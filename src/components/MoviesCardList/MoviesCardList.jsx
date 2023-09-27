@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import { useLocation } from "react-router-dom";
+import { SCREEN_SIZE, MORE_MOVIES, DISPLAYED_MOVIES } from "../../utils/constants";
 
 function MoviesCardList(props) {
 
@@ -12,19 +13,27 @@ function MoviesCardList(props) {
   const currentPath = location.pathname;
 
   useEffect(() => {
-    if (screenWidth >= 1280) {
-      setMoviesDisplayed(12)
-      setMoviesMore(3)
-    // } else if (screenWidth >= 768) {
-    } else if (screenWidth >= 830) {
-      setMoviesDisplayed(8)
-      setMoviesMore(2)
-    // } else if (screenWidth >= 320) {
-    } else if (screenWidth >= 405) {
-      setMoviesDisplayed(5)
-      setMoviesMore(2)
+    if (screenWidth >= SCREEN_SIZE.DESKTOP) {
+      setMoviesDisplayed(DISPLAYED_MOVIES.DESKTOP)
+      setMoviesMore(MORE_MOVIES.DESKTOP)
+    } 
+    else if (screenWidth >= SCREEN_SIZE.TABLET) {
+      setMoviesDisplayed(DISPLAYED_MOVIES.TABLET)
+      setMoviesMore(MORE_MOVIES.TABLET)
+    } else if (screenWidth >= SCREEN_SIZE.MOBILE) {
+      setMoviesDisplayed(DISPLAYED_MOVIES.MOBILE)
+      setMoviesMore(MORE_MOVIES.MOBILE)
     }
-  }, [screenWidth])
+
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, [props.movies, screenWidth, setScreenWidth])
+
 
   function ShowMoviesMore() {
     setMoviesDisplayed(moviesDisplayed + moviesMore)

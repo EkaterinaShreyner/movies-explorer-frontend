@@ -54,8 +54,9 @@
   }
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 405px) {
   .movies__button {
     margin-top: 76px;
   }
 }
+
