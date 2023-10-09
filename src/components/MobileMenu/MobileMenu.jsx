@@ -11,13 +11,13 @@ function MobileMenu(props) {
       <nav className="menu-mobile__container">
         <ul className="menu-mobile__list">
           <li>
-            <NavLink to="/" className={({isActive}) => `menu-mobile__item ${isActive ? "menu-mobile__item_active" : ""}`}>Главная</NavLink>
+            <NavLink onClick={props.handleMenuMobile} to="/" className={({isActive}) => `menu-mobile__item ${isActive ? "menu-mobile__item_active" : ""}`}>Главная</NavLink>
           </li>
           <li>
-            <NavLink to="/movies" className={({isActive}) => `menu-mobile__item ${isActive ? "menu-mobile__item_active" : ""}`}>Фильмы</NavLink>
+            <NavLink onClick={props.handleMenuMobile} to="/movies" className={({isActive}) => `menu-mobile__item ${isActive ? "menu-mobile__item_active" : ""}`}>Фильмы</NavLink>
           </li>
           <li>
-            <NavLink to="/saved-movies" className={({isActive}) => `menu-mobile__item ${isActive ? "menu-mobile__item_active" : ""}`}>Сохранённые фильмы</NavLink>
+            <NavLink onClick={props.handleMenuMobile} to="/saved-movies" className={({isActive}) => `menu-mobile__item ${isActive ? "menu-mobile__item_active" : ""}`}>Сохранённые фильмы</NavLink>
           </li>
           <li>
             <Link to="/profile" className="menu-mobile__profile"></Link>

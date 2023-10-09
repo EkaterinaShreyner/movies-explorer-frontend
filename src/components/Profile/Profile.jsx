@@ -1,67 +1,100 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useFormWithValidation } from '../../hook/useForm';
 
 function Profile(props) {
 
-  // const [isEditProfile, setEditProfile] = useState(false);
-  const [name, setName] = useState("Екатерина")
-  const [email, setEmail] = useState("kkk@mail.ru");
+  const { values, setValues, handleChange, errors, isFormValid } = useFormWithValidation();
+  // глобальный стейт данных пользователя
+  const currentUser = useContext(CurrentUserContext);
+  // стейт кноки обновления данных пользователя
   const [isSubmitButton, setIsSubmitButton] = useState(false);
+  // стейт поля ввода данных
+  const [isInputDisabled, setIsInputDisabled] = useState(true);
 
-  function handleChangeInputName(evt) {
-    setName(evt.target.value);
-  }
-
-  function handleChangeInputEmail(evt) {
-    setEmail(evt.target.value);
-  }
+  useEffect(() => {
+    setValues({
+      name: currentUser.name,
+      email: currentUser.email 
+    })
+  }, [currentUser, setValues]);
 
   function onLoginOut() {
     props.onLoginOut();
   }
 
-  function handleChangeButtonSubmit() {
-    setIsSubmitButton(true)
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    if (isFormValid) {
+      props.onUpdateUser({
+        name: values.name,
+        email: values.email,
+      })
+      setTimeout(() => setIsSubmitButton(false), 2000);
+    }
+    setIsInputDisabled(true);
+  }
+
+  function handleChangeButtonEdit() {
+    setIsSubmitButton(true);
+    setIsInputDisabled(false);
   }
 
   return(
     <div className="profile">
-      <h2 className="profile__title">Привет, Екатерина!</h2>
-      <form className="profile__form" name="form-profile" noValidate>
+      <h2 className="profile__title">{`Привет, ${currentUser.name}`}</h2>
+      <form className="profile__form" name="form-profile" noValidate onSubmit={handleSubmit} autoComplete="on">
         <div className="profile__container">
-          <label className="profile__input-label" htmlFor="name">Имя</label>
-          <input
-            className="profile__input"
-            type="text"
-            name="name"
-            id="name"
-            minLength="2"
-            maxLength="30"
-            required
-            value={name || ""}
-            onChange={handleChangeInputName}
-            placeholder="Имя"
-          />
+          <div className="profile__element">
+            <label className="profile__input-label" htmlFor="name">Имя</label>
+            <input
+              className="profile__input"
+              type="text"
+              name="name"
+              id="name"
+              minLength="2"
+              maxLength="30"
+              required
+              value={values.name || ""}
+              onChange={handleChange}
+              placeholder="Имя"
+              pattern="^[A-Za-zА-Яа-я\s\-]{2,30}$"
+              disabled={isInputDisabled}
+            />
+          </div>
+          <span className="profile__input-error">{errors.name}</span>
         </div>
         <div className="profile__container">
-        <label className="profile__input-label" htmlFor="email">E-mail</label>
-        <input
-          className="profile__input"
-          type="text"
-          name="email"
-          id="email"
-          required
-          value={email || ""}
-          onChange={handleChangeInputEmail}
-          placeholder="E-mail"
-        />
+          <div className="profile__element">
+            <label className="profile__input-label" htmlFor="email">E-mail</label>
+            <input
+              className="profile__input"
+              type="email"
+              name="email"
+              id="email"
+              required
+              value={values.email || ""}
+              onChange={handleChange}
+              placeholder="E-mail"
+              pattern="[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-z]{2,}"
+              disabled={isInputDisabled}
+            />
+          </div>
+        <span className="profile__input-error">{errors.email}</span>
         </div>
+        <span className="profile__error">{props.errorMessage}</span>
+        <span className="profile__success">{props.successMessage}</span>
         {!isSubmitButton ? (
           <>
-            <button className="profile__button-edit" type="button" onClick={handleChangeButtonSubmit}>Редактировать</button>
+            <button className="profile__button-edit" type="button" onClick={handleChangeButtonEdit}>Редактировать</button>
             <button className="profile__button-exit" type="button" onClick ={onLoginOut}>Выйти из аккаунта</button>
           </>
         ) : (
-          <button className="profile__button-submit" type="submit">Сохранить</button>
+          <button className={`profile__button-submit ${isFormValid && !(currentUser.name === values.name && currentUser.email === values.email) ? "" : "profile__button-submit_disabled"}`}
+            type="submit"
+          >
+            Сохранить
+          </button>
         )}
       </form>
     </div>

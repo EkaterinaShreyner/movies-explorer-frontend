@@ -6,6 +6,12 @@
   justify-content: center;
 }
 
+.movies__error {
+  color: #EEE;
+  font-size: 20px;
+  text-align: center;
+}
+
 @media screen and (max-width: 910px) {
   .movies {
     padding: 80px 30px;
